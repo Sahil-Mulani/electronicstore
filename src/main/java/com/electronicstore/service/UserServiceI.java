@@ -2,11 +2,9 @@ package com.electronicstore.service;
 
 import com.electronicstore.Dto.PageableResponse;
 import com.electronicstore.Dto.UserDto;
-import com.electronicstore.Enitity.User;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public interface UserServiceI {
@@ -29,5 +27,5 @@ public interface UserServiceI {
    UserDto getByUserEmailAndUserPassword(String email,String password);
 
 
-
+    UserDto getSingleUser(String userId);
 }

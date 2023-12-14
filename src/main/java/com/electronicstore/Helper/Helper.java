@@ -1,7 +1,6 @@
 package com.electronicstore.Helper;
 
 import com.electronicstore.Dto.PageableResponse;
-import org.hibernate.query.Query;
 import org.modelmapper.ModelMapper;
 import org.springframework.data.domain.Page;
 

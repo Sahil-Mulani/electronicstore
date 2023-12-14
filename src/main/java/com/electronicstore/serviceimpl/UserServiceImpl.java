@@ -1,5 +1,6 @@
-package com.electronicstore.Userserviceimpl;
+package com.electronicstore.serviceimpl;
 
+import com.electronicstore.Constant.AppConstant;
 import com.electronicstore.Dto.PageableResponse;
 import com.electronicstore.Dto.UserDto;
 import com.electronicstore.Enitity.User;
@@ -15,10 +16,12 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import java.io.File;
 import java.util.List;
-import java.util.Optional;
 import java.util.UUID;
 import java.util.stream.Collectors;
+
+import static org.aspectj.weaver.tools.cache.SimpleCacheFactory.path;
 
 @Service
 @Slf4j
@@ -88,10 +91,29 @@ public class UserServiceImpl implements UserServiceI {
     }
 
     @Override
+    public UserDto getSingleUser(String userId) {
+        log.info("Entering the Dao call for get Single user with userId :{} ",userId);
+        User user = this.userRepo.findById(userId).orElseThrow(() -> new ResourceNotFoundException(AppConstant.NOT_FOUND + userId));
+        UserDto dto = this.modelMapper.map(user, UserDto.class);
+        log.info("Completed the Dao call for get Single user with userId :{} ",userId);
+        return dto;
+
+    }
+
+    @Override
     public void DeleteUser(String userId) {
         log.info("Entering Dao for delete user with userId");
 
         User user = this.userRepo.findById(userId).orElseThrow(() -> new ResourceNotFoundException("resource not found exception Id"));
+
+        String imageName = user.getUserImage();
+        String fullPath = path + imageName;
+
+        File Image=new File(fullPath);
+        if(Image.exists()){
+            Image.delete();
+        }
+        log.info("Completed the Dao call for delete the user with userId :{} id");
         this.userRepo.delete(user);
 
 
@@ -127,4 +149,6 @@ public class UserServiceImpl implements UserServiceI {
         log.info("complete dao for find user by email and passsword");
         return userDto;
     }
+
+
 }
