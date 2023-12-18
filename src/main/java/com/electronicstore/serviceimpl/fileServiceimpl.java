@@ -16,7 +16,13 @@ import java.util.logging.Logger;
 @Slf4j
 public class fileServiceimpl implements FileServiceI {
 
-
+    /**
+     *
+     * @param file
+     * @param path
+     * @return
+     * @throws IOException
+     */
     @Override
     public String uploadFile(MultipartFile file, String path) throws IOException {
 
@@ -48,6 +54,14 @@ public class fileServiceimpl implements FileServiceI {
 
 
     }
+
+    /**
+     *
+     * @param path
+     * @param name
+     * @return
+     * @throws FileNotFoundException
+     */
 
     @Override
     public InputStream getResource(String path, String name) throws FileNotFoundException {

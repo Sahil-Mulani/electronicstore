@@ -27,6 +27,11 @@ public class CategoryServiceImpl implements CategoryServiceI {
     @Autowired
     private ModelMapper modelMapper;
 
+    /**
+     *
+     * @param categoryDto
+     * @return
+     */
     @Override
     public CategoryDto createCategory(CategoryDto categoryDto) {
         log.info("Entering the Dao call for create the Category : {}",categoryDto);
@@ -37,6 +42,15 @@ public class CategoryServiceImpl implements CategoryServiceI {
         log.info("Completed the Dao call for create the Category : {}",categoryDto);
         return modelMapper.map(savedCategory,CategoryDto.class);
     }
+
+    /**
+     *
+     * @param pageNumber
+     * @param pageSize
+     * @param sortBy
+     * @param direction
+     * @return
+     */
 
     @Override
     public PageableResponse getAllCategory(Integer pageNumber, Integer pageSize, String sortBy, String direction) {
@@ -52,6 +66,12 @@ public class CategoryServiceImpl implements CategoryServiceI {
         return response;
     }
 
+    /**
+     *
+     * @param categoryId
+     * @return
+     */
+
     @Override
     public CategoryDto getSingleCategory(String categoryId) {
         log.info("Entering the Dao call for Get Single Category With CategoryId :{}",categoryId);
@@ -62,6 +82,11 @@ public class CategoryServiceImpl implements CategoryServiceI {
         return dto;
     }
 
+    /**
+     *
+     * @param categoryId
+     */
+
     @Override
     public void deleteCategory(String categoryId) {
         log.info("Entering the Dao call for Delete The Category With CategoryId :{}",categoryId);
@@ -70,6 +95,13 @@ public class CategoryServiceImpl implements CategoryServiceI {
         this.categoryRepo.delete(category);
 
     }
+
+    /**
+     *
+     * @param categoryDto
+     * @param categoryId
+     * @return
+     */
 
     @Override
     public CategoryDto updateCategory(CategoryDto categoryDto, String categoryId) {
