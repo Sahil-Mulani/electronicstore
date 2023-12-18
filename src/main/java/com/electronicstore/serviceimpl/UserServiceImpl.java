@@ -33,6 +33,11 @@ public class UserServiceImpl implements UserServiceI {
     @Autowired
     ModelMapper modelMapper;
 
+    /**
+     * @apiNote for create user
+     * @param userDto
+     * @return
+     */
     @Override
     public UserDto createUser(UserDto userDto) {
         log.info("Entering the Dao for Creating User");
@@ -47,6 +52,15 @@ public class UserServiceImpl implements UserServiceI {
 
 
     }
+
+    /**
+     *
+     * @param userDto
+     * @param userId
+     * @return
+     */
+
+
 
     @Override
     public UserDto updateUser(UserDto userDto, String userId) {
@@ -66,6 +80,13 @@ public class UserServiceImpl implements UserServiceI {
 
     }
 
+    /**
+     *
+     * @param userDto
+     * @param userId
+     * @return
+     */
+
     @Override
     public UserDto getUserById(UserDto userDto, String userId) {
         log.info("Entering Dao  for get user By Id");
@@ -74,6 +95,15 @@ public class UserServiceImpl implements UserServiceI {
         log.info("Complte Dao for get user By Id");
         return userDto1;
     }
+
+    /**
+     *
+     * @param pageNumber
+     * @param pageSize
+     * @param sortBy
+     * @param direction
+     * @return
+     */
 
     @Override
     public PageableResponse getAllUser(Integer pageNumber, Integer pageSize, String sortBy, String direction) {
@@ -90,6 +120,12 @@ public class UserServiceImpl implements UserServiceI {
         return pageableResponse;
     }
 
+    /**
+     *
+     * @param userId
+     * @return
+     */
+
     @Override
     public UserDto getSingleUser(String userId) {
         log.info("Entering the Dao call for get Single user with userId :{} ",userId);
@@ -99,6 +135,11 @@ public class UserServiceImpl implements UserServiceI {
         return dto;
 
     }
+
+    /**
+     * @apiNote for delete user
+     * @param userId
+     */
 
     @Override
     public void DeleteUser(String userId) {
@@ -120,6 +161,12 @@ public class UserServiceImpl implements UserServiceI {
 
     }
 
+    /**
+     *
+     * @param email
+     * @return
+     */
+
     @Override
     public UserDto getUserByEmailId(String email) {
         log.info("Entering Dao for get user by EmailId");
@@ -129,6 +176,12 @@ public class UserServiceImpl implements UserServiceI {
         return userDto;
 
     }
+
+    /**
+     *
+     * @param keyword
+     * @return
+     */
 
 
     @Override
@@ -140,6 +193,13 @@ public class UserServiceImpl implements UserServiceI {
         return dtos;
 
     }
+
+    /**
+     *
+     * @param email
+     * @param password
+     * @return
+     */
 
     @Override
     public UserDto getByUserEmailAndUserPassword(String email, String password) {

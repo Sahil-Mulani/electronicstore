@@ -146,6 +146,14 @@ public class UserController {
         return new ResponseEntity<UserDto>(userByEmailAndPassword, HttpStatus.OK);
     }
 
+    /**
+     *
+     * @param image
+     * @param userId
+     * @return
+     * @throws IOException
+     */
+
 
         @PostMapping("/image/{userId}")
         public ResponseEntity<ImageResponse> uploadImage(@RequestParam MultipartFile image, @PathVariable    String userId) throws
