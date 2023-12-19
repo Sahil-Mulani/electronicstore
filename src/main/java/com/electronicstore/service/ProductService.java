@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public interface ProductService {
-    ProductDto saveProduct(ProductDto productDto);
+    ProductDto createProduct(ProductDto productDto);
 
     ProductDto getSingleProduct(String productId);
 

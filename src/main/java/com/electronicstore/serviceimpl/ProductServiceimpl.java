@@ -38,7 +38,7 @@ public class ProductServiceimpl implements ProductService {
      * @return
      */
     @Override
-    public ProductDto saveProduct(ProductDto productDto) {
+    public ProductDto createProduct(ProductDto productDto) {
         log.info("Entering Dao for save product");
         Product product  = this.modelMapper.map(productDto, Product.class);
 

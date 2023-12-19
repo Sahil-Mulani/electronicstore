@@ -46,7 +46,7 @@ public class ProductController {
     @PostMapping("/")
     public ResponseEntity<ProductDto> createProduct(@Valid @RequestBody ProductDto productDto) {
         log.info("Entering product for create product");
-        ProductDto productDto1 = this.productService.saveProduct(productDto);
+        ProductDto productDto1 = this.productService.createProduct(productDto);
         log.info("Complte product for create product");
         return new ResponseEntity<>(productDto1, HttpStatus.CREATED);
     }
