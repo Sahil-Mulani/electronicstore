@@ -90,9 +90,9 @@ public class ProductController {
      */
 
     @PutMapping("/{productId}")
-    public ResponseEntity<ProductDto> updateProduct(@Valid @PathVariable String productId, @RequestBody ProductDto dto) {
+    public ResponseEntity<ProductDto> updateProduct(@Valid @RequestBody ProductDto dto, @PathVariable String productId) {
         log.info("Eneting product for update the product");
-        ProductDto productDto = this.productService.updateProduct(productId, dto);
+        ProductDto productDto = this.productService.updateProduct(productId,dto);
         log.info("Complete product for update the product");
         return new ResponseEntity<>(productDto, HttpStatus.OK);
     }

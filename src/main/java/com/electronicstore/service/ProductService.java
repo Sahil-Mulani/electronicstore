@@ -12,7 +12,7 @@ public interface ProductService {
 
     void deleteProduct(String productId);
 
-    ProductDto updateProduct(String productId,ProductDto productDto);
+    ProductDto updateProduct(String productId,  ProductDto dto);
 
     PageableResponse<ProductDto> getAllProducts(Integer pageNumber, Integer pageSize, String sortBy, String direction);
 
