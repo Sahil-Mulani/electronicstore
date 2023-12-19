@@ -82,13 +82,13 @@ public class UserServiceImpl implements UserServiceI {
 
     /**
      *
-     * @param userDto
+     *
      * @param userId
      * @return
      */
 
     @Override
-    public UserDto getUserById(UserDto userDto, String userId) {
+    public UserDto getUserById( String userId) {
         log.info("Entering Dao  for get user By Id");
         User user = this.userRepo.findById(userId).orElseThrow(() -> new ResourceNotFoundException("resource not found exception Id"));
         UserDto userDto1 = this.modelMapper.map(user, UserDto.class);

@@ -173,6 +173,14 @@ public class UserController {
             return new ResponseEntity<ImageResponse>(imageResponse,HttpStatus.CREATED);
 
         }
+        @GetMapping("/{userId}")
+        public ResponseEntity<UserDto> getUserById(@PathVariable String userId){
+
+
+            UserDto userDto = this.userServiceI.getUserById(userId);
+
+            return new ResponseEntity<>(userDto,HttpStatus.OK);
+        }
 
 
 

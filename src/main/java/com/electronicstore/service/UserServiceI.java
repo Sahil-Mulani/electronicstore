@@ -13,7 +13,7 @@ public interface UserServiceI {
 
     UserDto updateUser (UserDto userDto,  String userId);
 
-    UserDto getUserById(UserDto userDto,String userId);
+    UserDto getUserById(String userId);
 
     PageableResponse getAllUser(Integer pageNumber, Integer pageSize, String sortBy, String direction);
 
