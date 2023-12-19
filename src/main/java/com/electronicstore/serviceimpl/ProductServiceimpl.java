@@ -80,7 +80,7 @@ public class ProductServiceimpl implements ProductService {
      */
 
     @Override
-    public ProductDto updateProduct(String productId, ProductDto productDto) {
+    public ProductDto updateProduct(String productId,  ProductDto productDto) {
         log.info("Entering Dao for update product");
         Product product = productRepo.findById(productId).orElseThrow(() -> new ResourceNotFoundException(AppConstant.NOT_FOUND));
 
