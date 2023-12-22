@@ -17,10 +17,10 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
-import javax.management.relation.Role;
+
 import java.util.Arrays;
 import java.util.List;
-import java.util.Set;
+
 import java.util.stream.Collectors;
 
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
@@ -115,7 +115,7 @@ public class UserControllerTest {
 
     @Test
     public void getUserByEmailTest() throws Exception {
-        String email="suppawar6@gmail.com";
+        String email="sahilmulani@gmail.com";
 
         UserDto dto=this.modelMapper.map(user,UserDto.class);
 
